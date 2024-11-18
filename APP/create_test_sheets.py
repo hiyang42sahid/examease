@@ -12,7 +12,11 @@ def create_sheet(data):
     # print(f"this {data}")
     # for key, value in data.items():
     #     print(f"{key}: {value}")
+
     imagelist = []  
+    # Create QR code
+ 
+
     for item in data:
         # print("Student ID: ", item['Student_id'])
 

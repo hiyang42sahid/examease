@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -67,6 +68,11 @@ TEMPLATES = [
         },
     },
 ]
+
+# Define the media root path
+MEDIA_ROOT = os.path.join(BASE_DIR, 'APP/media')
+# MEDIA_URL = 'media/'
+
 
 WSGI_APPLICATION = 'examease.wsgi.application'
 

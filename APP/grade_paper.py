@@ -1,6 +1,6 @@
-from qreader import QReader
 import cv2
 import numpy as np
+from pyzbar.pyzbar import decode
 
 epsilon = 10 #image error sensitivity
  #load tracking tags
@@ -14,7 +14,7 @@ def ProcessPage(paper):
 
         test_sensitivity_epsilon = 10 #bubble darkness error sensitivity
         answer_choices = ['A', 'B', 'C', 'D', 'E', '?'] #answer choices
-        qreader = QReader()
+        #qreader = QReader()
        
         #test sheet specific scaling constants
         scaling = [605.0, 835.0] #scaling factor for 8.5in. x 11in. paper
@@ -29,24 +29,22 @@ def ProcessPage(paper):
         #  codes = zbarlight.scan_codes('qrcode', Image.fromarray(np.uint8(gray_paper))) #look for QR code
         
 
-        # y=0
-        # x=0
-        # h=65
-        # w=80
+        y=0
+        x=0
+        h=65
+        w=80
 
-        # crop_img = paper[y:y+h, x:x+w]
-        # image = cv2.cvtColor(cv2.resize(crop_img, (80, 80)), cv2.COLOR_BGR2GRAY)   
-        # cv2.imshow("QR Image", cv2.resize(image, (80, 80)))
-        # cv2.imshow("QR Paper", image)
-        # det=cv2.QRCodeDetector()
-        # codes =det.detectAndDecode(image)
-        # Get the image that contains the QR code
-        image = cv2.cvtColor(paper, cv2.COLOR_BGR2RGB)
+        crop_img = paper[y:y+h, x:x+w]
+        image = cv2.cvtColor(cv2.resize(crop_img, (80, 80)), cv2.COLOR_BGR2GRAY)   
+   
+        decoded_objects = decode(image)
+        # Loop over all decoded objects
+        for obj in decoded_objects:
+            # Print the QR code data
+            codes=obj.data.decode('utf-8')
+           # print("Decoded Data:", obj.data.decode('utf-8'))
 
-        # Use the detect_and_decode function to get the decoded QR data
-        codes = qreader.detect_and_decode(image=image)
-
-        print(f"c {codes}")
+        #print(f"c {codes}")
 
         gamma = 0.2                                # change the value here to get different result
         img1 = adjust_gamma(paper, gamma=gamma)

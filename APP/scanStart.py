@@ -94,9 +94,9 @@ def scanSheet(file_name):
 	if biggestContour is not None:
 		if answers != -1:
 			cv2.drawContours(image, [biggestContour], -1, (0, 255, 255), 3)
-			print (answers)
-			if codes is not None:
-				print (codes)
+			# print (answers)
+			# if codes is not None:
+			# 	print (codes)
 		else:
 			cv2.drawContours(image, [biggestContour], -1, (0, 255, 255), 3)
 

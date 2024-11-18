@@ -484,7 +484,7 @@
             success: function(response) {
                 let data = JSON.parse(response);
                 console.log(data)
-                if(data == null || data.code[0]==null){                     
+                if(data == null || data.code==null){                     
                         document.body.style.cursor = "default";
                         $('#loading').attr('style','display: none;')
                     swal({
@@ -496,8 +496,8 @@
 
                     return;
                 }
-
-                var codeToSplit = data.code[0].split(' ');
+                //console.log(data.code)
+                var codeToSplit = data.code.split(' ');
                 var studentName = "";
                 var cSplitLength = codeToSplit.length;
                 for(i = 1; i < cSplitLength; i++){
