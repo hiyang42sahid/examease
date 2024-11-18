@@ -1,14 +1,9 @@
-import sys
-import time
 import cv2
 import numpy as np
 import qrcode
 from PIL import Image
 import os
-from APP import pdf 
 import random
-import subprocess
-import itertools
 from APP.pdf import images_to_pdf
 
 

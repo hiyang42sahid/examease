@@ -1,9 +1,6 @@
 from qreader import QReader
-from csv import reader
 import cv2
 import numpy as np
-from PIL import Image
-from pyzbar.pyzbar import decode
 
 epsilon = 10 #image error sensitivity
 test_sensitivity_epsilon = 10 #bubble darkness error sensitivity

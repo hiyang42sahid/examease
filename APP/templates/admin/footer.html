@@ -6,7 +6,7 @@
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2024 <a href="#">ExamEase</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
@@ -41,12 +41,14 @@
            
             // Retrieve data from sessionStorage
             const username = sessionStorage.getItem("username");
+            const firstname = sessionStorage.getItem("firstname");
+            const lastname = sessionStorage.getItem("lastname");
  
             var elements = document.getElementsByClassName("UserFullname");
 
             // change the innerHTML of each selected element
             for (var i = 0; i < elements.length; i++) {
-            elements[i].innerHTML = username;
+                  elements[i].innerHTML = firstname + " "+lastname;
             }
     });
 
